@@ -2,6 +2,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { Text, StyleSheet } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import AdsCarousel from '../AdsCarousel/Index';
+import Search from '../Search/Index';
 
 const Header = () => {
     return (
@@ -11,9 +12,11 @@ const Header = () => {
             locations={[0.0, 0.37, 1]}
             colors={['#0b863c', '#23b54e', '#57af3a']}
             style={styles.background}>
+
             <Text style={styles.title}>Shop</Text>
-            <StatusBar animated style='light' />
+            <StatusBar style='light' />
             <AdsCarousel />
+            <Search />
         </LinearGradient>
     )
 }
@@ -22,7 +25,8 @@ const Header = () => {
 const styles = StyleSheet.create(
     {
         background: {
-            flex: 4
+            height: 250,
+            zIndex: 10
         },
         title: {
             marginTop: 50,
