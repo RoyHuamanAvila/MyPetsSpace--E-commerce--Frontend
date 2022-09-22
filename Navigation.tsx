@@ -23,6 +23,7 @@ const MyTabs = () => {
                 tabBarIcon: ({ color, size }) => (
                     <MaterialCommunityIcons name="account" size={size} color={color} />
                 ),
+                headerShown: false
             }} />
         </Tab.Navigator>
     )

@@ -16,7 +16,7 @@ const renderTabBar = (props: any) => (
 
 const TabCarousel = () => {
     const FirstRoute = () => (
-        <ScrollView contentContainerStyle={{ backgroundColor: '#f1f1f1', flexWrap: 'wrap', flexDirection: 'row', marginTop: 15, justifyContent: 'space-evenly' }} >
+        <ScrollView contentContainerStyle={{ backgroundColor: '#f1f1f1', flexWrap: 'wrap', flexDirection: 'row', margin: 20, justifyContent: 'space-evenly' }} >
             <CardItem />
             <CardItem />
             <CardItem />
