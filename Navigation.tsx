@@ -5,6 +5,7 @@ import Home from "./screens/Home";
 import Profile from "./screens/Profile";
 import { Ionicons } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import ProductScreen from './screens/ProductScreen';
 
 const Tab = createBottomTabNavigator();
 
@@ -20,6 +21,12 @@ const MyTabs = () => {
                 headerShown: false
             }} />
             <Tab.Screen name="Profile" component={Profile} options={{
+                tabBarIcon: ({ color, size }) => (
+                    <MaterialCommunityIcons name="account" size={size} color={color} />
+                ),
+                headerShown: false
+            }} />
+            <Tab.Screen name="Product" component={ProductScreen} options={{
                 tabBarIcon: ({ color, size }) => (
                     <MaterialCommunityIcons name="account" size={size} color={color} />
                 ),
