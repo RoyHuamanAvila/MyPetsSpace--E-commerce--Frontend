@@ -9,7 +9,7 @@ const renderTabBar = (props: any) => (
         activeColor={'#0b863c'}
         indicatorStyle={{ backgroundColor: '#0b863c' }}
         style={{ backgroundColor: '#fff', paddingTop: 15 }}
-        labelStyle={{ color: 'black', fontWeight: '500', textTransform: 'none' }}
+        labelStyle={{ color: '#5b5b5c', fontWeight: '500', textTransform: 'none' }}
     />
 );
 
