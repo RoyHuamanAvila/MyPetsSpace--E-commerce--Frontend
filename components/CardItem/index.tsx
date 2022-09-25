@@ -1,10 +1,9 @@
 import { View, Text, StyleSheet, Image } from "react-native"
-
 const CardItem = () => {
     return (
         <View style={Styles.card}>
-            <Text style={Styles.name}>Mimaskot</Text>
             <Image style={Styles.imageProduct} source={{ uri: 'https://royalpet.pe/wp-content/uploads/2020/06/MIMASKOT-CARNE-CEREAL-15KG-806623.png' }} />
+            <Text style={Styles.name}>Mimaskot Adulto 21 kg</Text>
         </View>
     )
 }
@@ -27,11 +26,19 @@ const Styles = StyleSheet.create({
     },
     name: {
         textAlign: "center",
-        marginTop: 10
+        margin: 10,
+        color: '#5b5b5c',
+        fontSize: 12
     },
     imageProduct: {
         flex: 1,
-        resizeMode: "contain"
+        resizeMode: "contain",
+        marginTop: 10
+    },
+    mark: {
+        position: "absolute",
+        right: 0,
+        top: 0
     }
 })
 

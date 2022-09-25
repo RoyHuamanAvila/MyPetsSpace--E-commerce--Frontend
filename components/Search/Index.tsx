@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
     },
     search: {
         width: '90%',
-        height: 15,
+        height: 18,
         backgroundColor: 'transparent',
         borderBottomColor: 'transparent',
         borderTopColor: 'transparent',
