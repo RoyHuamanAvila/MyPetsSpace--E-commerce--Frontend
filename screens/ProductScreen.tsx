@@ -2,26 +2,26 @@ import { View, Image, Text, StyleSheet, Pressable, ScrollView } from "react-nati
 import { AntDesign } from '@expo/vector-icons';
 import CounterInput from "react-native-counter-input";
 import { NativeStackScreenProps } from "@react-navigation/native-stack/lib/typescript/src/types";
+import { productType } from "../types";
 
 type RootStackParamList = {
     Home: undefined;
-    Product: {
-        name: string
-    };
+    Product: productType;
 };
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Product'>;
 
 const ProductScreen = ({ route }: Props) => {
+    const productData = route.params;
     return (
         <ScrollView contentContainerStyle={styles.screen}>
             <View>
                 <View style={styles.productContainer}>
-                    <Image style={styles.productImage} source={{ uri: 'https://royalpet.pe/wp-content/uploads/2020/06/MIMASKOT-CARNE-CEREAL-15KG-806623.png' }} />
+                    <Image style={styles.productImage} source={{ uri: `${productData.image}` }} />
                 </View>
                 <View style={{ flexDirection: "row", alignItems: "center" }}>
                     <Text style={styles.nameProduct}>
-                        {route.params.name}
+                        {productData.name}
                     </Text>
                     <AntDesign style={{ flex: 1 }} name="hearto" size={24} color="black" />
                 </View>
@@ -39,14 +39,13 @@ const ProductScreen = ({ route }: Props) => {
                         }}
                     />
                     <Text style={{ fontSize: 30, marginLeft: 20 }}>
-                        S/ 50
+                        {productData.price}
                     </Text>
                 </View>
                 <View>
                     <Text style={styles.subtitle}>Description</Text>
                     <Text style={styles.text}>
-                        Mimaskot carne, cereales y vegetales es un alimento para perros adultos de razas medianas y grandes que contiene la mejor combinación
-                        de nutrientes esenciales para la salud y vitalidad de tu mascota
+                        {productData.description}
                     </Text>
                 </View>
                 <View>

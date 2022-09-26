@@ -2,6 +2,9 @@ import * as React from 'react';
 import { ScrollView, View, useWindowDimensions } from 'react-native'
 import { TabView, TabBar, SceneMap } from 'react-native-tab-view';
 import CardItem from '../CardItem';
+import axios from 'axios';
+import { productType } from '../../types';
+import { EvilIcons } from '@expo/vector-icons';
 
 const renderTabBar = (props: any) => (
     <TabBar
@@ -15,16 +18,29 @@ const renderTabBar = (props: any) => (
 
 
 const TabCarousel = () => {
+    const [products, setProducts] = React.useState<productType[]>();
+
+    React.useEffect(() => {
+        const useAxios = async () => {
+            const axiosData = await axios.get('https://mypetsspace.onrender.com/api/product');
+            setProducts(axiosData.data);
+        }
+        useAxios();
+    }, [])
+
+
     const FirstRoute = () => (
         <ScrollView contentContainerStyle={{ backgroundColor: '#f1f1f1', flexWrap: 'wrap', flexDirection: 'row', margin: 20, justifyContent: 'space-evenly' }} >
-            <CardItem />
-            <CardItem />
-            <CardItem />
-            <CardItem />
-            <CardItem />
-            <CardItem />
-            <CardItem />
-            <CardItem />
+            {
+                !products && (
+                    <EvilIcons name="spinner-3" size={24} color="black" />
+                )
+            }
+            {
+                products && (
+                    products.map((p, index) => <CardItem key={index} {...p} />)
+                )
+            }
         </ScrollView>
     );
 
