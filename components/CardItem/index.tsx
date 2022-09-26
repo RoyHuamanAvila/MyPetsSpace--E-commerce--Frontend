@@ -1,10 +1,14 @@
-import { View, Text, StyleSheet, Image } from "react-native"
+import { Pressable, Text, StyleSheet, Image } from "react-native"
+import { useNavigation } from '@react-navigation/native'
+
 const CardItem = () => {
+    const navigation = useNavigation();
+
     return (
-        <View style={Styles.card}>
+        <Pressable style={Styles.card} onPress={() => navigation.navigate("product" as never, { name: 'Pedro' } as never)}>
             <Image style={Styles.imageProduct} source={{ uri: 'https://royalpet.pe/wp-content/uploads/2020/06/MIMASKOT-CARNE-CEREAL-15KG-806623.png' }} />
             <Text style={Styles.name}>Mimaskot Adulto 21 kg</Text>
-        </View>
+        </Pressable>
     )
 }
 

@@ -1,17 +1,27 @@
-import { View, Image, Text, StyleSheet, Pressable } from "react-native"
+import { View, Image, Text, StyleSheet, Pressable, ScrollView } from "react-native"
 import { AntDesign } from '@expo/vector-icons';
 import CounterInput from "react-native-counter-input";
+import { NativeStackScreenProps } from "@react-navigation/native-stack/lib/typescript/src/types";
 
-const ProductScreen = () => {
+type RootStackParamList = {
+    Home: undefined;
+    Product: {
+        name: string
+    };
+};
+
+type Props = NativeStackScreenProps<RootStackParamList, 'Product'>;
+
+const ProductScreen = ({ route }: Props) => {
     return (
-        <View style={styles.screen}>
+        <ScrollView contentContainerStyle={styles.screen}>
             <View>
                 <View style={styles.productContainer}>
                     <Image style={styles.productImage} source={{ uri: 'https://royalpet.pe/wp-content/uploads/2020/06/MIMASKOT-CARNE-CEREAL-15KG-806623.png' }} />
                 </View>
                 <View style={{ flexDirection: "row", alignItems: "center" }}>
                     <Text style={styles.nameProduct}>
-                        Mimaskot Adulto Raza Mediana/Grande 15 Kg
+                        {route.params.name}
                     </Text>
                     <AntDesign style={{ flex: 1 }} name="hearto" size={24} color="black" />
                 </View>
@@ -62,13 +72,12 @@ const ProductScreen = () => {
             <Pressable style={styles.buttonBuy}>
                 <Text style={styles.textButton}>Buy</Text>
             </Pressable>
-        </View>
+        </ScrollView>
     )
 }
 
 const styles = StyleSheet.create({
     screen: {
-        flex: 1,
         flexDirection: "column",
         justifyContent: "space-between"
     },
@@ -77,7 +86,7 @@ const styles = StyleSheet.create({
         height: 200,
         width: '95%',
         alignSelf: "center",
-        marginTop: 50,
+        marginTop: 10,
         borderRadius: 5
     },
     productImage: {

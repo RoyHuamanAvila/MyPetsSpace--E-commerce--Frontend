@@ -6,16 +6,30 @@ import Profile from "./screens/Profile";
 import { Ionicons } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import ProductScreen from './screens/ProductScreen';
-import WishListScreen from './screens/WishListScreen';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 const Tab = createBottomTabNavigator();
+const Stack = createNativeStackNavigator();
+
+const MyStack = () => {
+    return (
+        <Stack.Navigator>
+            <Stack.Screen name='home' component={Home} options={{
+                headerShown: false
+            }} />
+            <Stack.Screen name='product' component={ProductScreen} options={{
+                headerTitle: ''
+            }} />
+        </Stack.Navigator>
+    )
+}
 
 const MyTabs = () => {
     return (
         <Tab.Navigator initialRouteName="Home" screenOptions={{
             tabBarActiveTintColor: '#11a76a',
         }}>
-            <Tab.Screen name="Home" component={Home} options={{
+            <Tab.Screen name="Home" component={MyStack} options={{
                 tabBarIcon: ({ color, size }) => (
                     <Ionicons name="md-home-sharp" size={size} color={color} />
                 ),
