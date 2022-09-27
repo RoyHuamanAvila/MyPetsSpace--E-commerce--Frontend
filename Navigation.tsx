@@ -8,7 +8,7 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import ProductScreen from './src/screens/ProductScreen';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Login from './src/screens/Login';
-import { useContextPet } from './src/context/Index';
+import { useContextPet } from './src/context/index';
 import { RootStackParamList } from './types';
 
 const Tab = createBottomTabNavigator<RootStackParamList>();

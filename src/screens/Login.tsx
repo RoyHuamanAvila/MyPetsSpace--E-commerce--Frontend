@@ -3,7 +3,7 @@ import React from 'react'
 import { View, StyleSheet, Text, TextInput, Pressable } from 'react-native'
 import axios from 'axios'
 import { useNavigation } from '@react-navigation/native'
-import { useContextPet } from '../context/Index'
+import { useContextPet } from '../context/index'
 
 const Login = () => {
     const [email, setEmail] = React.useState('');
