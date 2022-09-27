@@ -7,14 +7,18 @@ import { Ionicons } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import ProductScreen from './screens/ProductScreen';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import Login from './screens/Login';
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
 
 const MyStack = () => {
     return (
-        <Stack.Navigator>
-            <Stack.Screen name='home' component={Home} options={{
+        <Stack.Navigator initialRouteName='login'>
+            <Stack.Screen name='login' component={Login} options={{
+                headerShown: false,
+            }} />
+            <Stack.Screen name='home' component={MyTabs} options={{
                 headerShown: false
             }} />
             <Stack.Screen name='product' component={ProductScreen} options={{
@@ -29,7 +33,7 @@ const MyTabs = () => {
         <Tab.Navigator initialRouteName="Home" screenOptions={{
             tabBarActiveTintColor: '#11a76a',
         }}>
-            <Tab.Screen name="Home" component={MyStack} options={{
+            <Tab.Screen name="Home" component={Home} options={{
                 tabBarIcon: ({ color, size }) => (
                     <Ionicons name="md-home-sharp" size={size} color={color} />
                 ),
@@ -48,7 +52,7 @@ const MyTabs = () => {
 const Navigation = () => {
     return (
         <NavigationContainer>
-            <MyTabs />
+            <MyStack />
         </NavigationContainer>
     )
 }
