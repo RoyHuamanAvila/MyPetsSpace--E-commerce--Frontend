@@ -9,14 +9,14 @@ const Login = () => {
     const [email, setEmail] = React.useState('');
     const [password, setPassword] = React.useState('');
     const navigation = useNavigation();
-    const { userLogged, setUserLogged } = useContextPet();
+    const { setUserLogged } = useContextPet();
 
     const handleLogin = async () => {
         const axiosData = await axios.post('https://mypetsspace.onrender.com/auth/local/login', {
             email: email,
             password: password
         });
-        const { token, profile } = axiosData.data;
+        const { profile } = axiosData.data;
 
         if (profile) {
             setUserLogged(profile)
