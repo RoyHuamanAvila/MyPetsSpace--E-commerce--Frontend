@@ -1,8 +1,11 @@
 import Navigation from "./Navigation";
+import { ContextPetProvider } from "./src/context/Index";
 
 const App = () => {
   return (
-    <Navigation />
+    <ContextPetProvider>
+      <Navigation />
+    </ContextPetProvider>
   )
 }
 

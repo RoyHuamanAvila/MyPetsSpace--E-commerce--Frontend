@@ -1,6 +1,6 @@
-import Header from "../components/Header/Index";
+import Header from "../../components/Header/Index";
 import { View, StyleSheet } from 'react-native';
-import TabCarousel from "../components/TabsCarousel/Index";
+import TabCarousel from "../../components/TabsCarousel/Index";
 
 
 const Home = () => {

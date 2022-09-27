@@ -3,20 +3,23 @@ import React from 'react'
 import { View, StyleSheet, Text, TextInput, Pressable } from 'react-native'
 import axios from 'axios'
 import { useNavigation } from '@react-navigation/native'
+import { useContextPet } from '../context/Index'
 
 const Login = () => {
     const [email, setEmail] = React.useState('');
     const [password, setPassword] = React.useState('');
     const navigation = useNavigation();
+    const { userLogged, setUserLogged } = useContextPet();
 
     const handleLogin = async () => {
         const axiosData = await axios.post('https://mypetsspace.onrender.com/auth/local/login', {
             email: email,
             password: password
         });
-        const token = axiosData.data;
+        const { token, profile } = axiosData.data;
 
-        if (token) {
+        if (profile) {
+            setUserLogged(profile)
             navigation.navigate('home' as never);
         }
     }
