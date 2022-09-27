@@ -1,17 +1,9 @@
 import { View, Image, Text, StyleSheet, Pressable, ScrollView } from "react-native"
 import { AntDesign } from '@expo/vector-icons';
 import CounterInput from "react-native-counter-input";
-import { NativeStackScreenProps } from "@react-navigation/native-stack/lib/typescript/src/types";
-import { productType } from "../types";
+import { PropsProduct } from "../../types";
 
-type RootStackParamList = {
-    Home: undefined;
-    Product: productType;
-};
-
-type Props = NativeStackScreenProps<RootStackParamList, 'Product'>;
-
-const ProductScreen = ({ route }: Props) => {
+const ProductScreen = ({ route }: PropsProduct) => {
     const productData = route.params;
     return (
         <ScrollView contentContainerStyle={styles.screen}>
