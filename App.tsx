@@ -1,5 +1,5 @@
 import Navigation from "./Navigation";
-import { ContextPetProvider } from "./src/context/Index";
+import { ContextPetProvider } from "./src/context/index";
 
 const App = () => {
   return (
