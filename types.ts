@@ -19,7 +19,7 @@ export interface userType {
     sales: number,
     followers: number,
     imagePerfil: string,
-    listProducts: string[],
+    listProducts: productType[],
 }
 
 export interface profileType {

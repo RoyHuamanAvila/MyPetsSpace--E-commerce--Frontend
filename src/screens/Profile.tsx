@@ -1,10 +1,24 @@
 import { View, StyleSheet, Text, ScrollView, Image } from "react-native"
 import { Entypo } from '@expo/vector-icons';
 import CardItem from "../../components/CardItem";
-import { PropsProfile } from "../../types";
-
+import { PropsProfile, userType } from "../../types";
+import { productType } from "../../types";
+import { useState, useEffect } from 'react';
+import axios from "axios";
 const Profile = ({ route }: PropsProfile) => {
     const profile = route.params;
+    const [products, setProducts] = useState<productType[]>();
+
+    useEffect(() => {
+        const axiosData = async () => {
+            const data: userType = await (await axios.get(`https://mypetsspace.onrender.com/user/${profile._id}`)).data;
+
+            setProducts(data.listProducts);
+        }
+
+        axiosData();
+    })
+
     return (
         <View style={styles.screen}>
             <View style={styles.header}>
@@ -23,7 +37,7 @@ const Profile = ({ route }: PropsProfile) => {
                 </View>
                 <View style={styles.flexContainer}>
                     <View>
-                        <Text style={styles.title}>{profile.posts}</Text>
+                        <Text style={styles.title}>{products?.length}</Text>
                         <Text style={styles.text}>Posts</Text>
                     </View>
                     <View>
@@ -37,8 +51,13 @@ const Profile = ({ route }: PropsProfile) => {
                 </View>
             </View>
             <View style={styles.container}>
+                <Entypo style={{ alignSelf: "center", marginTop: 15, marginBottom: 15 }} name="shop" size={24} color="#0b863c" />
                 <ScrollView contentContainerStyle={styles.scrollContainer}>
-
+                    {
+                        products && (
+                            products.map(p => <CardItem {...p} />)
+                        )
+                    }
                 </ScrollView>
             </View>
         </View>
