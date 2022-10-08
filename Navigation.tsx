@@ -10,6 +10,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Login from './src/screens/Login';
 import { useContextPet } from './src/context/index';
 import { RootStackParamList } from './types';
+import Register from './src/screens/Register';
 
 const Tab = createBottomTabNavigator<RootStackParamList>();
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -19,6 +20,11 @@ const MyStack = () => {
         <Stack.Navigator initialRouteName='login'>
             <Stack.Screen name='login' component={Login} options={{
                 headerShown: false,
+            }} />
+            <Stack.Screen name='register' component={Register} options={{
+                headerTitle: '',
+                headerShadowVisible: false,
+                headerTransparent: true
             }} />
             <Stack.Screen name='home' component={MyTabs} options={{
                 headerShown: false
