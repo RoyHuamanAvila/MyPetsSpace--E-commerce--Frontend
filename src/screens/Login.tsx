@@ -12,7 +12,7 @@ const Login = () => {
     const { setUserLogged } = useContextPet();
 
     const handleLogin = async () => {
-        const axiosData = await axios.post('https://mypetsspace.onrender.com/auth/local/login', {
+        const axiosData = await axios.post('https://us-central1-mypetsspace-b4e25.cloudfunctions.net/app/auth/local/login', {
             email: email,
             password: password
         });

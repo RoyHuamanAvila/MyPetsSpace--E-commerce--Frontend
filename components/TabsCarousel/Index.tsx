@@ -22,7 +22,7 @@ const TabCarousel = () => {
 
     React.useEffect(() => {
         const useAxios = async () => {
-            const axiosData = await axios.get('https://mypetsspace.onrender.com/api/product');
+            const axiosData = await axios.get('https://us-central1-mypetsspace-b4e25.cloudfunctions.net/app/api/product');
             setProducts(axiosData.data);
         }
         useAxios();

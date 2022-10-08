@@ -10,7 +10,7 @@ const Register = () => {
     const [direction, setDirection] = React.useState('');
     const navigation = useNavigation();
     const handleSignUp = async () => {
-        const axiosData = await axios.post('https://mypetsspace.onrender.com/auth/local/register', {
+        const axiosData = await axios.post('https://us-central1-mypetsspace-b4e25.cloudfunctions.net/app/auth/local/register', {
             email: email,
             password: password,
             name: name,
