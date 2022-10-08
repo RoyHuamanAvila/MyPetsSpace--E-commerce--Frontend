@@ -50,6 +50,11 @@ const Login = () => {
                 <Pressable style={styles.button} onPress={handleLogin}>
                     <Text style={styles.textButton}>Login</Text>
                 </Pressable>
+                <Pressable onPress={() => navigation.navigate('register' as never)}>
+                    <Text style={styles.textSignUp}>
+                        Don´t have any account? Sign Up
+                    </Text>
+                </Pressable>
             </View>
         </View>
     )
@@ -104,6 +109,10 @@ const styles = StyleSheet.create({
         color: '#fff',
         textAlign: 'center',
         fontSize: 16
+    },
+    textSignUp: {
+        textAlign: 'center',
+        color: '#0b863c',
     }
 })
 

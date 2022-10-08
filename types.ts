@@ -34,6 +34,7 @@ export interface profileType {
 }
 export type RootStackParamList = {
     login: undefined;
+    register: undefined;
     home: undefined;
     product: productType;
     profile: profileType;
