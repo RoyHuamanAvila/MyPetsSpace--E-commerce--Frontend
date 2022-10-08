@@ -1,4 +1,4 @@
-# MyPetsSpace--E-commerce--Frontend
+# MyPetsSpace
 <p>E-commerce focused on pet stores and veterinarians<p>
 <img src="https://user-images.githubusercontent.com/64821788/194725981-3d994534-f387-4603-a1cb-38abb486c576.png" alt="login" width="200"/>
 <img src="https://user-images.githubusercontent.com/64821788/194725991-1436ac2e-2422-466c-a840-1570d1fff5a6.png" alt="home" width="200"/>
